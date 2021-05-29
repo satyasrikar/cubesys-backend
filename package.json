@@ -1,0 +1,26 @@
+{
+  "name": "client-api",
+  "version": "1.0.0",
+  "description": "API for crm client side app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "DentedCode",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.16",
+    "nodemon": "^2.0.7",
+    "redis": "^3.0.2"
+  }
+}
