@@ -127,25 +127,25 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.json({ status: "error", message: "Invalid form submition!" });
+    return res.json({ status: "error", message: "Invalid form submission!" });
   }
 
   const user = await getUserByEmail(email);
 
-  if (!user.isVerified) {
-    return res.json({
-      status: "error",
-      message:
-        "You account has not been verified. Please check your email and verify you account before able to login!",
-    });
-  }
+  // if (!user.isVerified) {
+  //   return res.json({
+  //     status: "error",
+  //     message:
+  //       "You account has not been verified. Please check your email and verify you account before able to login!",
+  //   });
+  // }
 
   const passFromDb = user && user._id ? user.password : null;
 
   if (!passFromDb)
     return res.json({ status: "error", message: "Invalid email or password!" });
 
-  const result = await comparePassword(password, passFromDb);
+  const result = await comparePassword(password, user.password);
 
   if (!result) {
     return res.json({ status: "error", message: "Invalid email or password!" });

@@ -16,17 +16,20 @@ app.use(cors());
 //MongoDB Connection Setup
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  "mongodb+srv://dbUser:dbUserPassword@cluster0.hj3ec.mongodb.net/crm?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  }
+);
 
 if (process.env.NODE_ENV !== "production") {
   const mDb = mongoose.connection;
   mDb.on("open", () => {
-    console.log("MongoDB is conneted");
+    console.log("MongoDB is connected");
   });
 
   mDb.on("error", (error) => {
@@ -56,7 +59,7 @@ app.use("/v1/tokens", tokensRouter);
 const handleError = require("./src/utils/errorHandler");
 
 app.use((req, res, next) => {
-  const error = new Error("Resources not found!");
+  const error = new Error("Resources not found! :(");
   error.status = 404;
   next(error);
 });
@@ -66,5 +69,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`API is ready on http://localhost:${port}`);
+  console.log(`Express Server is ready on PORT: ${port}`);
 });

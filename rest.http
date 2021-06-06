@@ -3,12 +3,12 @@ POST http://localhost:3001/v1/user
 Content-Type: application/json
 
 {
-    "name": "Prem Acharya",
-    "company": "Company name",
-    "address": "Some address Sydney",
-    "phone": "041000000",
-    "email": "e2@e.com1",
-    "password": "secret222"
+    "name": "Satya",
+    "company": "Cubesys",
+    "address": "Grove Street",
+    "phone": "400000001",
+    "email": "alpha.tms@live.in",
+    "password": "Eleven@111"
 }
 ### User sing in endpoint
 POST http://localhost:3001/v1/user/login
